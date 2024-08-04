@@ -136,3 +136,11 @@ builder.Services.AddScoped<IScopedGuidService, ScopedGuidService>();
 
 //remaining code
 ```
+## İletişim ve Geri Bildirim
+
+Proje hakkında fikirlerinizi veya önerilerinizi paylaşmaktan çekinmeyin. Bana aşağıdaki kanallardan ulaşabilirsiniz:
+
+- **Email**: [mehmet@example.com](mailto:mehmet@example.com)
+- **LinkedIn**: [linkedin.com/in/mehmetcopur](https://www.linkedin.com/in/mehmetcopur)
+
+Her türlü geri bildiriminiz benim için değerlidir ve projeyi daha iyi hale getirmek için yardımcı olacaktır.
