@@ -2,6 +2,8 @@
 
 Bu proje, .NET Core'da Dependency Injection (DI) türlerini ve bunların yaşam döngülerini göstermek için hazırlanmıştır. Proje, Transient, Scoped ve Singleton türlerini açıklayan ve bunların nasıl çalıştığını demonstrasyon eden bir örnek içerir.
 
+![Dependency Injection](https://upload.wikimedia.org/wikipedia/commons/1/10/Dependency_injection_notation.svg)
+
 ## İçindekiler
 
 - [Kullanılan Teknolojiler](#kullanılan-teknolojiler)
