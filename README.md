@@ -84,7 +84,7 @@ http://localhost:5000/
 #### `HomeController.cs`
 
 ```csharp
-...
+// remaining code
 public class HomeController : Controller
 {
     private readonly ISingletonGuidService _singleton1;
@@ -124,7 +124,7 @@ public class HomeController : Controller
 
         return Ok(message.ToString());
     }
-    ...
+    // remaining code
 }
 ```
 #### `Program.cs`
@@ -134,4 +134,6 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<ISingletonGuidService, SingletonGuidService>();
 builder.Services.AddTransient<ITransientGuidService, TransientGuidService>();
 builder.Services.AddScoped<IScopedGuidService, ScopedGuidService>();
+
+//remaining code
 ```
