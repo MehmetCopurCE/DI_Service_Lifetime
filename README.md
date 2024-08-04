@@ -45,6 +45,7 @@ Bu proje, .NET Core'da Dependency Injection (DI) türlerini ve bunların yaşam 
 
 Uygulama çalıştırıldığında, `HomeController` içerisindeki `Index` aksiyonu çağrılır. Bu aksiyon, farklı yaşam döngüsüne sahip servislerin GUID'lerini gösterir ve bu GUID'leri yanıt olarak döner. Tarayıcınızda aşağıdaki URL'yi ziyaret ederek sonuçları görebilirsiniz:
 
+http://localhost:5000/
 
 
 ## Servis Türleri ve Yaşam Döngüleri
@@ -56,7 +57,7 @@ Uygulama çalıştırıldığında, `HomeController` içerisindeki `Index` aksiy
 - **Örnek**:
 
     ```csharp
-    services.AddTransient<ITransientGuidService, TransientGuidService>();
+    builder.Services.AddTransient<ITransientGuidService, TransientGuidService>();
     ```
 
 ### Scoped
@@ -66,7 +67,7 @@ Uygulama çalıştırıldığında, `HomeController` içerisindeki `Index` aksiy
 - **Örnek**:
 
     ```csharp
-    services.AddScoped<IScopedGuidService, ScopedGuidService>();
+    builder.Services.AddScoped<IScopedGuidService, ScopedGuidService>();
     ```
 
 ### Singleton
@@ -76,12 +77,22 @@ Uygulama çalıştırıldığında, `HomeController` içerisindeki `Index` aksiy
 - **Örnek**:
 
     ```csharp
-    services.AddSingleton<ISingletonGuidService, SingletonGuidService>();
+    builder.Services.AddSingleton<ISingletonGuidService, SingletonGuidService>();
     ```
 
 ### Kod Açıklaması
 
+#### `HomeController.cs`
+
 ```csharp
+using System.Diagnostics;
+using System.Text;
+using Microsoft.AspNetCore.Mvc;
+using DI_Service_Lifetime.Models;
+using DI_Service_Lifetime.Services;
+
+namespace DI_Service_Lifetime.Controllers;
+
 public class HomeController : Controller
 {
     private readonly ISingletonGuidService _singleton1;
@@ -122,5 +133,48 @@ public class HomeController : Controller
         return Ok(message.ToString());
     }
 
+    public IActionResult Privacy()
+    {
+        return View();
+    }
+
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    public IActionResult Error()
+    {
+        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    }
 }
+
+using DI_Service_Lifetime.Services;
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<ISingletonGuidService, SingletonGuidService>();
+builder.Services.AddTransient<ITransientGuidService, TransientGuidService>();
+builder.Services.AddScoped<IScopedGuidService, ScopedGuidService>();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Home/Error");
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
+}
+
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+
+app.UseRouting();
+
+app.UseAuthorization();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.Run();
 
