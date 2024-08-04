@@ -141,6 +141,7 @@ builder.Services.AddScoped<IScopedGuidService, ScopedGuidService>();
 Proje hakkında fikirlerinizi veya önerilerinizi paylaşmaktan çekinmeyin. Bana aşağıdaki kanallardan ulaşabilirsiniz:
 
 - **Email**: [mehmet@example.com](mailto:mehmet@example.com)
-- **LinkedIn**: [linkedin.com/in/mehmetcopur](https://www.linkedin.com/in/mehmetcopur)
+[<img src="assets/images/LinkedIn_logo.png" width="50">](https://www.linkedin.com/in/m-copur/)
+
 
 Her türlü geri bildiriminiz benim için değerlidir ve projeyi daha iyi hale getirmek için yardımcı olacaktır.
