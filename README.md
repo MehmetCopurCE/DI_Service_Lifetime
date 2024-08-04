@@ -20,7 +20,7 @@ Bu proje, .NET Core'da Dependency Injection (DI) türlerini ve bunların yaşam 
 1. Bu projeyi bilgisayarınıza klonlayın:
 
     ```bash
-    git clone https://github.com/kullaniciadi/DI_Service_Lifetime.git
+    https://github.com/MehmetCopurCE/DI_Service_Lifetime.git
     ```
 
 2. Proje dizinine gidin:
