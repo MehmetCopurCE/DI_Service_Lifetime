@@ -84,14 +84,7 @@ http://localhost:5000/
 #### `HomeController.cs`
 
 ```csharp
-using System.Diagnostics;
-using System.Text;
-using Microsoft.AspNetCore.Mvc;
-using DI_Service_Lifetime.Models;
-using DI_Service_Lifetime.Services;
-
-namespace DI_Service_Lifetime.Controllers;
-
+...
 public class HomeController : Controller
 {
     private readonly ISingletonGuidService _singleton1;
@@ -131,17 +124,7 @@ public class HomeController : Controller
 
         return Ok(message.ToString());
     }
-
-    public IActionResult Privacy()
-    {
-        return View();
-    }
-
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-    }
+    ...
 }
 ```
 #### `Program.cs`
