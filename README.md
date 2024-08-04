@@ -143,8 +143,11 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
-}
+}```
 
+#### `HomeController.cs`
+
+```csharp
 using DI_Service_Lifetime.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -176,5 +179,4 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-app.Run();
-
+app.Run();```
