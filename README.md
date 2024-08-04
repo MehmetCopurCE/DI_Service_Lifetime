@@ -43,9 +43,8 @@ Bu proje, .NET Core'da Dependency Injection (DI) türlerini ve bunların yaşam 
 
 ## Kullanım
 
-Uygulama çalıştırıldığında, `HomeController` içerisindeki `Index` aksiyonu çağrılır. Bu aksiyon, farklı yaşam döngüsüne sahip servislerin GUID'lerini gösterir ve bu GUID'leri yanıt olarak döner. Tarayıcınızda aşağıdaki URL'yi ziyaret ederek sonuçları görebilirsiniz:
+Uygulama çalıştırıldığında, `HomeController` içerisindeki `Index` aksiyonu çağrılır. Bu aksiyon, farklı yaşam döngüsüne sahip servislerin GUID'lerini gösterir ve bu GUID'leri yanıt olarak döner. Tarayıcınızda `http://localhost:[PORT]/` URL'ini ziyaret ederek sonuçları görebilirsiniz. `[PORT]` kısmını terminalde gördüğünüz port numarası ile değiştirin.
 
-http://localhost:5000/
 
 ## Servis Türleri ve Yaşam Döngüleri
 
